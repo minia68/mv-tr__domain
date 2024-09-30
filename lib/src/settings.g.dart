@@ -7,8 +7,9 @@ part of 'settings.dart';
 // **************************************************************************
 
 Settings _$SettingsFromJson(Map<String, dynamic> json) => Settings(
-      tmdbApiKey: json['tmdbApiKey'] as String?,
       imageBaseUrl: json['imageBaseUrl'] as String?,
+      chatId: json['chatId'] as String?,
+      watchlistId: json['watchlistId'] as String?,
       trackerSettings: (json['trackerSettings'] as List<dynamic>?)
               ?.map((e) => TrackerSettings.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -16,8 +17,9 @@ Settings _$SettingsFromJson(Map<String, dynamic> json) => Settings(
     );
 
 Map<String, dynamic> _$SettingsToJson(Settings instance) => <String, dynamic>{
-      'tmdbApiKey': instance.tmdbApiKey,
       'imageBaseUrl': instance.imageBaseUrl,
+      'chatId': instance.chatId,
+      'watchlistId': instance.watchlistId,
       'trackerSettings': instance.trackerSettings,
     };
 

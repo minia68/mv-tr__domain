@@ -10,9 +10,10 @@ enum TrackerType {
 @JsonSerializable()
 class Settings {
   Settings({
-    required this.tmdbApiKey,
     required this.imageBaseUrl,
-    this.trackerSettings = const []
+    required this.chatId,
+    required this.watchlistId,
+    this.trackerSettings = const [],
   }) {
     for (var i = 0; i < trackerSettings.length - 1; i++) {
       final ts = trackerSettings[i];
@@ -24,8 +25,9 @@ class Settings {
     }
   }
 
-  final String? tmdbApiKey;
   final String? imageBaseUrl;
+  final String? chatId;
+  final String? watchlistId;
   final List<TrackerSettings> trackerSettings;
 
   Map<String, dynamic> toJson() => _$SettingsToJson(this);
@@ -51,6 +53,3 @@ class TrackerSettings {
   factory TrackerSettings.fromJson(Map<String, dynamic> json) =>
       _$TrackerSettingsFromJson(json);
 }
-
-//https://nnmclub.to/forum/tracker.php content-type:  application/x-www-form-urlencoded
-// prev_sd=0&prev_a=0&prev_my=0&prev_n=0&prev_shc=0&prev_shf=1&prev_sha=1&prev_shs=0&prev_shr=0&prev_sht=0&f%5B%5D=954&o=1&s=2&tm=-1&shf=1&sha=1&ta=-1&sns=-1&sds=-1&nm=2160p&pn=&submit=%CF%EE%E8%F1%EA
