@@ -28,6 +28,7 @@ TrackerSettings _$TrackerSettingsFromJson(Map<String, dynamic> json) =>
       trackerType: $enumDecode(_$TrackerTypeEnumMap, json['trackerType']),
       trackerUrl: json['trackerUrl'] as String,
       trackerRequest: json['trackerRequest'] as String,
+      torrentsLimit: (json['torrentsLimit'] as num?)?.toInt() ?? 50,
     );
 
 Map<String, dynamic> _$TrackerSettingsToJson(TrackerSettings instance) =>
@@ -35,6 +36,7 @@ Map<String, dynamic> _$TrackerSettingsToJson(TrackerSettings instance) =>
       'trackerType': _$TrackerTypeEnumMap[instance.trackerType]!,
       'trackerUrl': instance.trackerUrl,
       'trackerRequest': instance.trackerRequest,
+      'torrentsLimit': instance.torrentsLimit,
     };
 
 const _$TrackerTypeEnumMap = {

@@ -41,11 +41,13 @@ class TrackerSettings {
     required this.trackerType,
     required this.trackerUrl,
     required this.trackerRequest,
+    this.torrentsLimit = 50,
   });
 
   final TrackerType trackerType;
   final String trackerUrl;
   final String trackerRequest;
+  final int torrentsLimit;
 
   String get id => trackerRequest + trackerUrl;
 
